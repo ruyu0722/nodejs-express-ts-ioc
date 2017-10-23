@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "*": [
+                "*",
+                "src/*",
+                "node_modules/*"
+            ]
+        },
+        "lib": [
+            "es6"
+        ],
+        "module": "commonjs",
+        "target": "es6",
+        "types": ["reflect-metadata"],
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "outDir": "./dist",
+        "moduleResolution": "node",
+        "baseUrl": "."
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
