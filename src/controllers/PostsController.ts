@@ -1,7 +1,7 @@
 import { Application, Router, Request, Response, NextFunction } from 'express';
 import { injectable as Injectable, inject as Inject } from 'inversify';
 import { Types } from '../config/types';
-import { Controller } from './controller';
+import { Controller } from './Controller';
 
 import { CheckForAccessTokenMiddleware } from '../middlewares/CheckForAccessTokenMiddleware';
 import { PostService } from '../repositories/PostService';

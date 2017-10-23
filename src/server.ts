@@ -48,8 +48,6 @@ class Server {
 	}
 
 	private routes() {
-		// const controllers: RegistrableController[] = Container.getAll<RegistrableController>(Types.controller);
-		// controllers.forEach(controller => controller.register(this.app));
 		Container.getAll<RegistrableController>(Types.controller).forEach(controller => controller.register(this.app));
 		this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
 			res.status(404).send('Sorry, can\'t find that!');
