@@ -1,13 +1,14 @@
 import { Application, Router, Request, Response, NextFunction } from 'express';
 import { injectable as Injectable, inject as Inject } from 'inversify';
-import { RegistrableController } from '../structures/RegistrableController';
+import { Controller } from './controller';
 
 @Injectable()
-export class HomeController implements RegistrableController {
+export class HomeController extends Controller {
 
 	private router: Router;
 
 	constructor() {
+		super();
 		this.router = Router();
 	}
 

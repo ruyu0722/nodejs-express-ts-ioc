@@ -2,7 +2,6 @@ import { Application, Router, Request, Response, NextFunction } from 'express';
 import { injectable as Injectable, inject as Inject } from 'inversify';
 import { Types } from '../config/types';
 import { Controller } from './controller';
-import { RegistrableController } from '../structures/RegistrableController';
 
 import { CheckForAccessTokenMiddleware } from '../middlewares/CheckForAccessTokenMiddleware';
 import { PostService } from '../repositories/PostService';
@@ -10,7 +9,7 @@ import { PostService } from '../repositories/PostService';
 import { Post } from '../models/Posts';
 
 @Injectable()
-export class PostsController extends Controller implements RegistrableController {
+export class PostsController extends Controller {
 
 	private router: Router;
 	private checkForAccessTokenMiddleware: CheckForAccessTokenMiddleware;
