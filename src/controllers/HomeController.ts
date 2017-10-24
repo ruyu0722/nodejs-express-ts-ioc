@@ -1,7 +1,6 @@
 import { Application, Router, Request, Response, NextFunction } from 'express';
 import { injectable as Injectable, inject as Inject } from 'inversify';
 import { Controller } from './Controller';
-import { Types } from '../config/types';
 
 @Injectable()
 export class HomeController extends Controller {

@@ -36,7 +36,22 @@
   version "8.0.46"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.46.tgz#6e1766b2d0ed06631d5b5f87bb8e72c8dbb6888e"
 
-"@types/passport@^0.3.4":
+"@types/passport-local@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@types/passport-local/-/passport-local-1.0.31.tgz#804df8caa3bd8520a9ed9c7f204d132290664a0e"
+  dependencies:
+    "@types/express" "*"
+    "@types/passport" "*"
+    "@types/passport-strategy" "*"
+
+"@types/passport-strategy@*":
+  version "0.2.31"
+  resolved "https://registry.yarnpkg.com/@types/passport-strategy/-/passport-strategy-0.2.31.tgz#458049fc962580eaee6a836ad8c09f9256e77e68"
+  dependencies:
+    "@types/express" "*"
+    "@types/passport" "*"
+
+"@types/passport@*", "@types/passport@^0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@types/passport/-/passport-0.3.4.tgz#82929c7427091ba73273fcb963fdef8056bddbe7"
   dependencies:

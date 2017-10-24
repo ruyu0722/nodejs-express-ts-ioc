@@ -9,8 +9,8 @@
         "build": "npm run build-sass && npm run build-ts",
         "build-ts": "tsc",
         "watch-ts": "tsc -w",
-        "build-sass": "node-sass src/public/css/styles.scss dist/public/css/styles.css",
-        "watch-sass": "node-sass -w src/public/css/styles.scss dist/public/css/styles.css"
+        "build-sass": "node-sass resources/assets/sass/styles.scss public/css/styles.css",
+        "watch-sass": "node-sass -w resources/assets/sass/styles.scss public/css/styles.css"
     },
     "license": "MIT",
     "dependencies": {
@@ -38,6 +38,7 @@
         "@types/express-session": "^1.15.3",
         "@types/node": "^8.0.33",
         "@types/passport": "^0.3.4",
+        "@types/passport-local": "^1.0.31",
         "@types/reflect-metadata": "^0.0.5",
         "concurrently": "^3.5.0",
         "node-sass": "^4.5.3",

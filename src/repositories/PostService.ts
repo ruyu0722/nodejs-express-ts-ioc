@@ -12,7 +12,7 @@ export class PostService extends Service {
 
 	public getPosts() {
 		return this.http.get(`posts`)
-			.then((response) => response.data.map(post => <Post>post))
+			.then((response) => <Post[]>response.data)
 			.catch((err) => err.status);
 	}
 

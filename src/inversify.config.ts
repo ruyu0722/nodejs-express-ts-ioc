@@ -1,5 +1,4 @@
 import { Container as C } from 'inversify';
-import { Types } from './config/types';
 import { RegistrableController } from './structures/RegistrableController';
 
 /**
@@ -41,7 +40,7 @@ const controllers = [
  * ===========================================
  */
 const middlewares = [
-	CheckForAccessTokenMiddleware
+	{ class: CheckForAccessTokenMiddleware, name: 'CheckForAccessTokenMiddleware' }
 ];
 
 /**
@@ -50,12 +49,12 @@ const middlewares = [
  * ===========================================
  */
 const services = [
-	PostService
+	{ class: PostService, name: 'PostService' }
 ];
 
 const c = new C();
-controllers.forEach(controller => c.bind<RegistrableController>(Types.controller).to(controller));
-middlewares.forEach(middleware => c.bind(Types.middleware).to(middleware));
-services.forEach(service => c.bind(Types.service).to(service));
+controllers.forEach(controller => c.bind<RegistrableController>('Controller').to(controller));
+middlewares.forEach(middleware => c.bind(middleware.name).to(middleware.class));
+services.forEach(service => c.bind(service.name).to(service.class));
 
 export const Container = c;
