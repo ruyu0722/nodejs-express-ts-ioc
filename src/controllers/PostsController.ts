@@ -11,23 +11,18 @@ import { Post } from '../models/Posts';
 @Injectable()
 export class PostsController extends Controller {
 
-	private router: Router;
-	private checkForAccessTokenMiddleware: CheckForAccessTokenMiddleware;
-
-	private postService: PostService;
-
 	constructor(
-		@Inject(Types.middleware) checkForAccessTokenMiddleware: CheckForAccessTokenMiddleware,
-		@Inject(Types.service) postService: PostService
+		@Inject(Types.middleware) private checkForAccessTokenMiddleware: CheckForAccessTokenMiddleware,
+		@Inject(Types.service) private postService: PostService
 	) {
 		super();
-		this.router = Router();
 		this.checkForAccessTokenMiddleware = checkForAccessTokenMiddleware;
 		this.postService = postService;
 	}
 
 	public register(app: Application) {
-		this.router.get(
+		let router: Router = Router();
+		router.get(
 			'/posts',
 			this.checkForAccessTokenMiddleware.handle,
 			async (req: Request, res: Response, next: NextFunction) => {
@@ -40,7 +35,7 @@ export class PostsController extends Controller {
 				res.json(response);
 			}
 		);
-		this.router.get(
+		router.get(
 			'/posts/:id',
 			this.checkForAccessTokenMiddleware.handle,
 			async (req: Request, res: Response, next: NextFunction) => {
@@ -58,6 +53,6 @@ export class PostsController extends Controller {
 		 * Expose Routes
 		 * ===========================================
 		 */
-		app.use(this.router);
+		app.use(router);
 	}
 }
